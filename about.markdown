@@ -4,15 +4,8 @@ title: About
 permalink: /about/
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
+I'm Axel Gard, studing MSc Software Engineering at Linköping University, Sweden.
 
-You can find the source code for Minima at GitHub:
-[jekyll][jekyll-organization] /
-[minima](https://github.com/jekyll/minima)
+You can see my [Protfolio](https://axelgard.github.io/) and my [GitHub](https://github.com/AxelGard). 
 
-You can find the source code for Jekyll at GitHub:
-[jekyll][jekyll-organization] /
-[jekyll](https://github.com/jekyll/jekyll)
-
-
-[jekyll-organization]: https://github.com/jekyll
+If you whant to contact me do so on **axel.gard@tutanota.com** or [twitter](https://twitter.com/Axel_Gard). 
