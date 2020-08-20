@@ -1,11 +1,12 @@
 ---
 layout: post
-title:  "Cira build a index fund"
-date:   2020-08-18 22:00:00 +0200
+title:  "Build a index fund with Cira"
+date:   2020-08-20 20:00:00 +0200
 categories: cira
 ---
 
 ## basics 
+The fund will be buying and selling at random stocks from nasdaq giving a portfolio that follows the market. 
 
 ### Installation
 You can install by [pip](https://pypi.org/project/cira/)
@@ -13,7 +14,7 @@ You can install by [pip](https://pypi.org/project/cira/)
 pip install cira
 ```
 
-Becose the alpca trade API need a key. <br> 
+Becose the [alpca trade API](https://alpaca.markets/) need a key. <br> 
 You need to keep your api key in a **json file**. Cira needs the **path** to the file.
 
 **key.json**
@@ -42,7 +43,7 @@ cira.KEY_FILE = "../mypath/key.json"
 while True: 
   if cira.exchange_open():
   instance()
-  time.sleep(60*60)
+  time.sleep(60*30) # 30 min timer 
 ```
 
 ### The instance 
@@ -85,7 +86,7 @@ def random_buy():
 def random_sell():
     """ sells random stock """
     qty = random.randint(1, 100)
-    ownd_stocks = cira.get_ownd_stocks()
+    ownd_stocks = cira.owned_stocks()
     sym = ownd_stocks[random.randint(0, len(ownd_stocks)-1)]
     return cira.sell(qty, sym)
 
@@ -99,7 +100,8 @@ def instance():
 while True: 
   if cira.exchange_open():
     instance()
-    time.sleep(60*30) # 30 min timer 
+    time.sleep(60*30) # 30 min timer
+
 ```
 
 We are now done!
