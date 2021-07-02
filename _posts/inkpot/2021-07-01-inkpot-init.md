@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "inkpot a auto generate docs "
+title:  "inkpot auto generate docs "
 date:   2021-07-01 20:00:00 +0200
 categories: inkpot
 ---
