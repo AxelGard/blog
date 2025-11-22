@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "What tech skills companies wants in different places?"
-date:   2025-11-21 17:15:14 +0200
+date:   2025-11-21 18:00:00 +0200
 categories: jobs  
 ---
 
