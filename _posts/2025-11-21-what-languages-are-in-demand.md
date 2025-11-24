@@ -5,6 +5,13 @@ date:   2025-11-21 18:00:00 +0200
 categories: jobs  
 ---
 
+<!-- Privacy-friendly analytics by Plausible -->
+<script async src="https://plausible.io/js/pa-Mkhe7-zncWws4GpUjg690.js"></script>
+<script>
+  window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+  plausible.init()
+</script>
+
 So I'm work as a technical consulting company in Sweden, 
 and I have been thinking about what programming languages companies are looking for in different regions.
 
