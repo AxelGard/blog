@@ -1,13 +1,12 @@
 ---
 layout: post
-title:  "What tech skills companies wants in different places?"
+title:  "What programming languages are in demand in different places?"
 date:   2025-11-21 18:00:00 +0200
 categories: jobs  
 ---
 
-So I'm currently working as a technical consulting company in Sweden, 
-and I have been thinking about what skills companies are looking for in different regions.
-Im between assignments right now, and I was looking at job postings to see what skills are in demand.
+So I'm work as a technical consulting company in Sweden, 
+and I have been thinking about what programming languages companies are looking for in different regions.
 
 I follow a lot of different tech people on twitter and youtube, and I often see people talking about what skills are in demand in places like San Francisco or Berlin.
 But when I look at local job postings there is not really the same demand for skills.
@@ -17,12 +16,12 @@ So I assume that others also might be interested in what tech skills are compani
 ## Where can you find job postings?
 
 So I don't know about you but if I'm looking for a job I will usually start with talking with friends. But I would also look at linkedIn. 
-I don't know what it is like in other countries, but in Sweden, LinkedIn is widely used for job postings. There are also other but I Linkedin is the one I have used besides talking to friends. So I want to collect data from LinkedIn. 
+I don't know what it is like in other countries, but in Sweden, LinkedIn is widely used for job postings. There are alternatives but I Linkedin is the one I have used besides talking to friends. So I want to collect data from LinkedIn. 
 
 So in order to get some data we need to crawl linkedin job postings.
 There is an official API for LinkedIn but it seems as if you need some kind of partnership with them to use it. 
 
-So I looked around at turns out im not the first person trying to scrape linkedin job postings.
+So I looked around at turns out im not the first person trying to scrape linkedin for job postings.
 I found this [github repository](https://github.com/the-data-circle/linkedin-jobs-webscraping) that grabs job postings from linkedin by looking at network traffic that linkedin generates when you search for jobs. 
 The nice thing about this is that we don't need any API key for this. 
 
@@ -49,8 +48,8 @@ If you are looking at your own region you might want to update the `skills.csv` 
 Depending on the region the number of job postings can vary a lot.
 I have added a parameter that will limit the number of job postings to scrape.
 But for bigger regions that means that you will only get a subset of the total job postings.
-And linkedin is will also start returning other job postings after a while. 
-So the more jobs you request the noise in the data will get bigger. 
+And linkedin will also start returning less and less relevent job postings after a while.
+So the more jobs postings you request the noise will increase.
 
 
 ### Extracting skills from job postings
@@ -58,15 +57,15 @@ So the more jobs you request the noise in the data will get bigger.
 Different skills are more or less difficult to extract from job postings. 
 Some skills that are easy to extract are programming languages like `Python`, `Java` or `C++`
 But some skills are more ambiguous.
-For example if we are looking for `C` as a programming language it can be difficult. 
+For example if we are looking for `C` as a programming language can be difficult. 
 
-I looked at a bunch of job postings and tried to copy how they are written.
-So for example even for a `C++` role it is relatively common to write `C/C++` and `C++`.
+I looked at a bunch of job postings were they want `C` as a skill and tried to copy how they are written.
+So for example even for a `C` role it is relatively common to write `C/C++` and `C++`.
 
 When we look at the data this is also something to keep in mind.
 That some skills might have been in the job posting but not extracted correctly.
-I thought about using a NLP model like Llama or similar, to extract skills from the job posting text.
-Then you could do some type of implicit extraction of skills that are not explicitly mentioned in the text.
+I thought about using a NLP model (LLM) like Llama or similar, to extract skills from the job posting text.
+In that case you could do some type of implicit extraction of skills that are not explicitly mentioned in the text.
 But that only adds noise to the data in the form of hallucinations from the model.
 
 The way I find the relevant skills is just by doing a simple string search for each skill in the job posting text.
@@ -77,7 +76,7 @@ It seems to work fine for the most part.
 
 So let's look at some data that I have collected.
 This is not all the data I have collected 
-but to not make it to long I will so you some of the more interesting findings.
+but to not make it to long I will show some of the more interesting findings.
 
 I will also setup a cron job to collect data over time so that we can see trends in the data.
 But I will save that for another blog post.
@@ -95,8 +94,9 @@ If you don't know Linköping is a university city with a big focus on technology
 And there is some quite big tech companies located there like SAAB, Qualcomm, Sectra and Ericsson.
 This can also be seen in the job postings where the tech stacks that companies are using. 
 However, I was only able to find 40 job postings in Linköping when I ran the scraper.
+But that is not that weired considering Linköping only has a population of arund 168,035. 
 
-Here are the top 10 technologies that companies are looking for in Linköping:
+Here are the top 10 technologies skills that companies are looking for in Linköping:
 
 | Skill	| Number of Job Postings |
 |---------------------|------------------------|
@@ -128,24 +128,23 @@ If you don't know about Ada it was basically Rust before Rust was a thing.
 
 Sectra is a medical technology company that makes software for medical imaging there tech stack is mainly in C#.
 
-
 However it also useful to look at which skills are used by most number of companies. 
 
 | Skill | Number of companies using it |
 |---------------------|------------------------|
-| C++	| 8 |
-| Azure	| 8 |
-| Python	| 8 |
-| Git	| 8 |
-| C#	| 7 |
-| Java	| 7 |
-| SQL	| 6 |
+| C++	 | 8 |
+| Azure	 | 8 |
+| Python | 8 |
+| Git	 | 8 |
+| C#	 | 7 |
+| Java	 | 7 |
+| SQL	 | 6 |
 | Kubernetes	| 6 |
-| .NET	| 5 |
-| DevOps	| 5 |
+| .NET	 | 5 |
+| DevOps | 5 |
 
-So here we can that fore example `SQL` is used at a lot of companies.
-Even if it does not place as high if we rank by number of job postings.
+So here we can see that `SQL` is more common bettween companies.
+Even if it does not place as high if we rank by number of job postings with it as a skill.
 
 However the main languages of ´C++´, ´Python´ being the most used among companies.
 
@@ -182,7 +181,7 @@ We can also see how this relates to the companies that are posting jobs in Stock
 | Scania Group	| 10 |
 | Wolt	| 9 |
 | Spotify	| 8 |
-| Saab	| 8 |
+| SAAB | 8 |
 
 And then we have the skills most commonly used across companies. 
 
@@ -200,6 +199,7 @@ And then we have the skills most commonly used across companies.
 | Agile	| 47 |
 
 So we see more web development and cloud skills in Stockholm compared to Linköping.
+And much less focus on system level stacks with `C/C++`.
 
 ### USA
 
@@ -208,7 +208,7 @@ Let's compare against the USA.
 #### San Francisco, USA
 
 Since San Francisco is were all the big tech companies are,
-lets compare there posts against my local scene.  
+lets compare there posts against Linköping.  
 I was able to scrape 359 job postings in SF.
 
 | Skill	| Number of Job Postings |
@@ -224,6 +224,8 @@ I was able to scrape 359 job postings in SF.
 |	JavaScript	| 72 |
 |	Git	| 66 |
 
+What I find intressting is that in SF there seems to be much more consentation of skills. 
+Everyone wants a JS developers. 
 
 And the companies looking for talent is: 
 
@@ -235,11 +237,8 @@ And the companies looking for talent is:
 | Postman	| 5 |
 | Google	| 5 |
 
-
 Here we get all of the big tech companies and there tech stack. 
-Comparing this to my local town we can see some simulates, 
-but also see that JavaScript is much more in demand in SF. 
-We can also see that Stockholm and SF is more similar. 
+We can see that Stockholm and SF is more similar.
 
 | Skill | Number of companies using it |
 |---------------------|------------------------|
@@ -265,13 +264,13 @@ The data should be collected over time since different time of year might yield 
 
 There is most likely more skills that need to be added to the search set as well to make it even better.
 So you should not really to heavily on this data. 
-But when I look at my local data I feel like it is relatively representative for my area at the moment.
+But when I look at Linköping I feel like it is relatively representative for my area at the moment.
 I will start collect data over time to see some trends but I still thought this was interesting to share. 
 
 
 ## Conclusion 
 
-For me this means that I will have too look more at `C#` and `Java`,
+For me this means that I will have too look more at `C#`, `Java` and mabye more at `JS/TS`,
 since I am already very used to work with `C++` and `python`. 
 
 But I hope this was interesting for you as well. 
